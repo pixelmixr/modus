@@ -5,6 +5,7 @@
   "dependencies": {
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
+    "@types/connect-mongo": "^0.0.41",
     "@types/dotenv": "^6.1.0",
     "@types/express": "^4.16.1",
     "@types/express-session": "^1.15.12",

@@ -5,12 +5,11 @@ import bluebird from 'bluebird'
 import bodyParser from 'body-parser'
 import session from 'express-session'
 import uuid from 'uuid/v4'
-import sessionFileStore from 'session-file-store'
-
+import connectMongo from 'connect-mongo'
 
 dotenv.config()
-const FileStore = sessionFileStore(session)
 
+const MongoStore = connectMongo(session)
 const app = express()
 
 mongoose.Promise = bluebird
@@ -26,7 +25,7 @@ app.use(session({
     console.log(req.sessionID)
     return uuid()
   },
-  store: new FileStore(),
+  store: new MongoStore({ url: process.env.SESSIONDB_URI }),
   secret: 'something',
   resave: false,
   saveUninitialized: true
