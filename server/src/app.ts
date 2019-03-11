@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 import bluebird from 'bluebird'
 import bodyParser from 'body-parser'
 import session from 'express-session'
-import uuid from 'uuid/v4'
 import connectMongo from 'connect-mongo'
 
 dotenv.config()
@@ -20,11 +19,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
 app.set('port', process.env.API_PORT)
 app.use(session({
-  genid: (req) => {
-    console.log('genid callback')
-    console.log(req.sessionID)
-    return uuid()
-  },
   store: new MongoStore({ url: process.env.SESSIONDB_URI }),
   secret: 'something',
   resave: false,
