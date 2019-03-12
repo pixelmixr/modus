@@ -1,10 +1,10 @@
 import * as path from 'path'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
-import * as webpack from 'webpack'
 
 export default {
-  entry: {
-    app: ['./src/main.tsx']
+  entry: { 
+    app: ['./src/main.tsx'], 
+    vendor: ['react', 'react-dom']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -25,9 +25,8 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Modus',
-      template: path.resolve(__dirname, 'src', 'modus.ejs'),
-      baseUrl: '/'
+      template: './src/index.html',
+      filename: './index.html'
     })
   ]
 }
