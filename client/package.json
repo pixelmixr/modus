@@ -1,4 +1,8 @@
 {
+  "name": "modus",
+  "author": "pixelmixr",
+  "version": "1.0.0",
+  "license": "ISC",
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --inline --progress --watch --content-base dist/"
   },

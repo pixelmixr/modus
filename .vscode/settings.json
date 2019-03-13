@@ -1,0 +1,14 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "prettier.tslintIntegration": true,
+  "files.eol": "\n",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#51bdcc",
+    "titleBar.activeForeground": "#222222",
+    "titleBar.inactiveBackground": "#39828b",
+    "titleBar.inactiveForeground": "#000000"
+  }
+}

@@ -2,8 +2,8 @@ import * as path from 'path'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
-  entry: { 
-    app: ['./src/main.tsx'], 
+  entry: {
+    app: ['./src/main.tsx'],
     vendor: ['react', 'react-dom']
   },
   output: {
@@ -25,8 +25,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: './index.html'
+      template: './src/modus.ejs'
     })
   ]
 }
