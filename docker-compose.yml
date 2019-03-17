@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  dev:
+    image: modusdb
+    build: ./db
+    volumes:
+      - logs:/var/log/mongodb
+      - db-data:/data/db
+    restart: always
+    networks:
+      - backend
+    ports:
+      - "27017:27017"
+    command:
+      - "-f"
+      - "/etc/mongo/mongod.conf"
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: $MONGO_INITDB_ROOT_DATABASE
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+      MODUS_SESSION_DATABASE: $MODUS_SESSION_DATABASE
+      MODUS_SESSION_USERNAME: $MODUS_SESSION_USERNAME
+      MODUS_SESSION_PASSWORD: $MODUS_SESSION_PASSWORD
+      MODUS_DATABASE: $MODUS_DATABASE
+      MODUS_USERNAME: $MODUS_USERNAME
+      MODUS_PASSWORD: $MODUS_PASSWORD
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  logs:
+  db-data:
