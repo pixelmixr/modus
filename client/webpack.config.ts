@@ -1,7 +1,9 @@
 import * as path from 'path'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import * as webpack from 'webpack'
+import { IWebpackEnvironment } from './src/environments'
 
-export default {
+export default (env: IWebpackEnvironment) => ({
   entry: {
     app: ['./src/main.tsx'],
     vendor: ['react', 'react-dom']
@@ -26,6 +28,10 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/modus.ejs'
+    }),
+    new webpack.DefinePlugin({
+      DEFINE_APP_API: JSON.stringify(env.api),
+      DEFINE_APP_WEB_CLIENT: JSON.stringify(env.client)
     })
   ]
-}
+})

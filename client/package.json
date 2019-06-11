@@ -4,18 +4,24 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
-    "start": "webpack-dev-server --mode development --port 3000 --inline --progress --watch --content-base dist/"
+    "start:local": "cross-env NODE_ENV=development webpack-dev-server --env.client local --env.api local --mode development --port 3000 --inline --progress --watch --history-api-fallback --content-base dist/",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --env.client develop --env.api develop --mode development --port 3000 --inline --progress --watch --history-api-fallback --content-base dist/"
   },
   "dependencies": {
     "@types/html-webpack-plugin": "^3.2.0",
+    "auth0-js": "^9.10.4",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
+    "@types/auth0-js": "^9.10.2",
     "@types/node": "^11.11.1",
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
+    "@types/react-router-dom": "^4.3.3",
     "@types/webpack": "^4.4.25",
+    "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.16.4",
     "source-map-loader": "^0.2.4",
